@@ -28,6 +28,26 @@ In case off _ssl_ error type the following in your terminal or use node 16.
 export NODE_OPTIONS=--openssl-legacy-provider
 ```
 
+## Commands
+
+Install the dependencies:
+
+```
+yarn
+```
+
+For development its necessary create the game wasm and binding files:
+
+```
+yarn release:game
+```
+
+For production
+
+```
+yarn build
+```
+
 ## Demo
 
 https://sunny-cobbler-b61d05.netlify.app/

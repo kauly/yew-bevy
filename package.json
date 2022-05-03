@@ -1,0 +1,29 @@
+{
+  "name": "wasm-webpack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist pkg && yarn release:game && webpack",
+    "build:game": "cargo build --bin game --manifest-path ./game/Cargo.toml --release --target wasm32-unknown-unknown",
+    "bind:game": "wasm-bindgen --out-dir game/out/ --target web game/target/wasm32-unknown-unknown/release/game.wasm",
+    "opt:game": "wasm-opt -Oz -o game/out/game.wasm game/out/game_bg.wasm",
+    "clean:game": "rimraf game/out",
+    "release:game": "yarn clean:game && yarn build:game && yarn bind:game && yarn opt:game",
+    "dev": "rimraf dist pkg && webpack-dev-server --open"
+  },
+  "devDependencies": {
+    "@wasm-tool/wasm-pack-plugin": "^1.6.0",
+    "autoprefixer": "^10.4.7",
+    "copy-webpack-plugin": "^10.2.4",
+    "css-loader": "^6.7.1",
+    "postcss": "^8.4.13",
+    "postcss-loader": "^6.2.1",
+    "rimraf": "^3.0.2",
+    "style-loader": "^3.3.1",
+    "tailwindcss": "^3.0.24",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  }
+}

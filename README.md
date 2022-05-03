@@ -27,3 +27,7 @@ In case off _ssl_ error type the following in your terminal or use node 16.
 ```
 export NODE_OPTIONS=--openssl-legacy-provider
 ```
+
+## Demo
+
+https://sunny-cobbler-b61d05.netlify.app/
